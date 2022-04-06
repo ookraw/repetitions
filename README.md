@@ -33,11 +33,11 @@ In the included documentation, the overlapping residue items, illustrated by the
 ### Features:
 
 The project demonstrates the principles of substring sieves operating on three types of repetitions: <br/>
-- (1)&nbsp;	**Cross-Repetitions	S1 x S2 :** 	repetitions across two strings <br/>
-at least one instance of a repetition appears in each string S1 and S2. <br/>
-- (2)&nbsp;	**Self-Repetitions 	S2 :** 		repetitions within one and the same string S <br/>
-- (3)&nbsp;	**Staged Repetitions	S12 x S2 :** 	repetitions within the 1st and across the 2nd string <br/>
-repetitions are either within S1 or across S1 , S2 ; whereas repetitions within S2 are not taken into account. <br/>
+- (1)&nbsp;	**Cross-Repetitions	S<sub>1</sub> x S<sub>2</sub> :** 	repetitions across two strings <br/>
+at least one instance of a repetition appears in each string S<sub>1</sub> and S<sub>2</sub>. <br/>
+- (2)&nbsp;	**Self-Repetitions 	S<sup>2</sup> :** 		repetitions within one and the same string S <br/>
+- (3)&nbsp;	**Staged Repetitions	S<sub>1</sub><sup>2</sup> x S<sub>2</sub> :** 	repetitions within the 1st and across the 2nd string <br/>
+repetitions are either within S<sub>1</sub> or across S<sub>1</sub> , S<sub>2</sub> ; whereas repetitions within S<sub>2</sub> are not taken into account. <br/>
 
 Throughout, repetitions are exact matches of substrings (byte-by-byte); whether they repeat one or multiple times is irrelevant. <br/>
 
