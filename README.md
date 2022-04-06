@@ -45,36 +45,35 @@ Throughout, repetitions are exact matches of substrings (byte-by-byte); whether 
 To sieve a 1 Giga Byte string for self-repetitions requires roughly a hash table of 1 Giga Bit and 135 seconds processing time on a MS Windows laptop (Inspiron 5748, Intel(R) Core(TM) i7-4510U CPU @ 2.00GHz; 8,00 GB RAM). Each time the problem size redoubles, both the memory for the hash table and the processing time are set to double as well. Thus, to upgrade our example to 2 Giga Bytes, would require 270 seconds and a hash table of 2 Giga Bits.
 
 ### Context
-- **ISM** are the preferred radio frequency bands (434 / 868 / 912 MHz) used in smart home automation for remote-control and sensor data acquisition over the air
-- **OOK**, On-Off Keying, is the modulation technique most widely found in low cost equipment. Information is transmitted by varying the duration of alternating HIGH- and LOW-signals. In general, these durations are restricted to a limited number of duration levels / categories (-> clusters)
-- **Raw Data**, in form of signal duration sequences, is the common base level protocol of any OOK sender / receiver
+Intuitively, identifying repetitions and establishing correlations between repetitions is fundamental in any learning process.  <br/>
 
+In telecommunications we are interested in both, learning about:  <br/>
 
+ - **self-repeated information** such as syncs, preambles, delimiters, headers or even entire message blocks, as for example bursts that repeat in the same data stream, and <br/> 
+ - **cross-repeated information** of identical subsequences originating from correlated sources that are for example candidates for sharing the same protocol.<br/>
+
+For a specific application it is always interesting, and for large data certainly advisable, to analyze the distribution of the input before starting the sieving process. On the other hand, in the case of small problems, a more pragmatic approach could do the job:
+Start with a rather low noise threshold (L) and increase it on the fly until the amount of resulting residue becomes manageable for pairing.<br/> 
+
+### Setup Guide
+This repository contains three self-contained programs:
+- cross_repetitions_sieve.cpp
+- self_repetitions_sieve.cpp
+- staged_sieve.cpp  (follows later) <br/>
+
+No attempt has been made to “tune” the code. On the other hand some effort was made to help the compiler optimize the sieving time. For this reason it will be necessary to recompile the programs with new define statements for each problem. <br/>
+
+The following compiler flags have been used:
+-	-O3 -g3 -Wall         		: for optimization
+-	-Wl,--stack,0xFFFFFF  	: for long arrays  <br/>
+
+Note that you might have to upgrade minGW to x86_64 in order to obtain 64 bit executables.  <br/>
+
+### Project Presentation
+An analysis of the algorithms is available on https://sites.google.com/view/repsieve
 
 ### LICENSE
 This project is released under [CC-BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).<br/>
 The licensing TLDR is: You are free to use, copy, distribute and transmit this Software for personal, non-commercial purposes, as long as you give attribution and share any modifications under the same license. Commercial or for-profit use requires a license. <br/>
 For more details see the [LICENSE](https://github.com/ookraw/OOK-Raw-Data-Receiver/blob/master/LICENSE)
 
-### Setup Guide
-This repository contains all that is needed to setup your Arduino workspace:
-- receiver.ino
-- categorizer.cpp
-- categorizer.h
-- categorizer_lib.cpp
-- recorder.cpp
-- radio_lib.cpp
-- radio_lib.h
-- RFM69_lib.cpp
-- RFM69_registers.h
-
-### Required Hardware
-- MCU:   Arduino compatible mini pro 3.3V (MEGA328P)
-- Radio: Hope RFM69w
-- recommended: USB extension cable (5m) with snap-on Ferrite cores 
-
-The Radio - MCU connections are defined in radio_lib.cpp <br/>
-The prototype used during the development of the project can be found on  https://sites.google.com/site/rfm69arduino
-
-### Project Presentation
-An introduction to the project is available on https://sites.google.com/view/ookraw
