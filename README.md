@@ -14,7 +14,7 @@ L is critical as it controls the resulting amount of residue: if it is too large
 
 In telecommunications L may be interpreted as a noise level, in the sense that the shorter and more frequent the repetitions the less information they provide. However, by suppressing too much noise, one risks to miss valuable information. <br/> 
 
-**Example:** Consider the string S of length N= (4*3) + (3*7) = 33 : <br/>
+**Example:** Consider the string S of length N= (4x3) + (3x7) = 33 : <br/>
 &nbsp; &nbsp; &nbsp;  	S = “abc1234567def1234567ghi1234567jkl”. <br/>
 With L = 5 and moving forward from left to right, the initial forward residue is <br/>
 &nbsp; &nbsp; &nbsp;  	r = { “abc12”, “bc123”, “c1234”,  … , “567jk”, “67jkl” }. <br/>
