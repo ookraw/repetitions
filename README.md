@@ -1,5 +1,5 @@
 
-Repeated Substrings Sieve
+Repeated Substrings Sieves
 --------------------------
 
 Designed and coded by Felix Baessler, felix.baessler@gmail.com
